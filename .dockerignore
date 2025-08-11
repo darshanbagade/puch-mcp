@@ -3,6 +3,11 @@
 .gitignore
 README.md
 
+# Environment files (use environment variables instead)
+.env
+.env.*
+!.env.example
+
 # Python
 __pycache__
 *.pyc
