@@ -1,4 +1,6 @@
-# Use Python 3.11 slim image
+# Alternative Dockerfile with minimal dependencies
+# Use this if the main Dockerfile has dependency conflicts
+
 FROM python:3.11-slim
 
 # Set working directory
@@ -9,12 +11,12 @@ RUN apt-get update && apt-get install -y \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements first for better caching
-COPY requirements.txt .
+# Copy minimal requirements
+COPY requirements-minimal.txt requirements.txt
 
-# Upgrade pip and install Python dependencies
+# Upgrade pip and install dependencies with better resolution
 RUN pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+    pip install --no-cache-dir --upgrade-strategy eager -r requirements.txt
 
 # Copy application code
 COPY main.py .

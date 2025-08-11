@@ -1,0 +1,23 @@
+# Minimal requirements for Docker deployment
+# This file uses minimal version constraints to avoid dependency conflicts
+
+# FastMCP - Core MCP server framework
+fastmcp[streamable-http]
+
+# Environment management
+python-dotenv
+
+# AI/ML dependencies
+google-generativeai
+
+# Image processing
+Pillow
+
+# HTTP client - compatible with fastmcp
+httpx>=0.28.1
+
+# Web scraping
+beautifulsoup4
+
+# Data validation
+pydantic>=2.0.0

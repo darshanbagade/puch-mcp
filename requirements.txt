@@ -1,7 +1,20 @@
+# Core MCP framework - pin to working version
 fastmcp[streamable-http]==2.11.2
-python-dotenv==1.0.0
-google-generativeai==0.8.3
-Pillow==10.4.0
-httpx==0.27.0
-beautifulsoup4==4.12.3
-pydantic==2.8.2
+
+# HTTP client - must be >=0.28.1 for fastmcp 2.11.2 compatibility
+httpx>=0.28.1
+
+# Environment management
+python-dotenv>=1.0.0
+
+# AI/ML dependencies
+google-generativeai>=0.8.3
+
+# Image processing
+Pillow>=10.4.0
+
+# Web scraping
+beautifulsoup4>=4.12.3
+
+# Data validation - compatible with fastmcp
+pydantic>=2.8.2,<3.0.0
