@@ -1,5 +1,42 @@
 # 🚀 Product Price Finder MCP Server - Deployment Guide
 
+## 🐳 Docker Deployment (Fixed!)
+
+**Issue Resolved:** The Docker build was failing because it tried to copy `.env` file which we properly excluded from git for security.
+
+### Quick Docker Start
+```bash
+# Build the image
+docker build -t mcp-server .
+
+# Run with environment variables (no .env file needed!)
+docker run -p 8086:8086 \
+  -e AUTH_TOKEN=debugger0007 \
+  -e GEMINI_API_KEY=your_gemini_key \
+  -e MY_NUMBER=your_phone_number \
+  -e DEBUG=false \
+  mcp-server
+```
+
+### Docker Compose (Recommended)
+```bash
+# Create .env file for docker-compose
+cp .env.example .env
+# Edit .env with your values
+
+# Start with docker-compose
+docker-compose up -d
+```
+
+### Test Docker Build
+```bash
+# Linux/Mac
+./test-docker.sh
+
+# Windows
+test-docker.bat
+```
+
 ## Quick Deployment Options
 
 ### 1. **Docker (Recommended)**
