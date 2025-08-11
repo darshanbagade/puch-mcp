@@ -1,0 +1,16 @@
+{
+  "name": "product-price-finder-mcp",
+  "description": "MCP Server for product price finding with AI image analysis",
+  "runtime": "python",
+  "version": "1.0.0",
+  "build": {
+    "command": "pip install -r requirements.txt"
+  },
+  "start": {
+    "command": "python main.py"
+  },
+  "env": {
+    "PORT": "8086",
+    "HOST": "0.0.0.0"
+  }
+}

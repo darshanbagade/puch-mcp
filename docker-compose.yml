@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mcp-server:
+    build: .
+    ports:
+      - "8086:8086"
+    environment:
+      - AUTH_TOKEN=${AUTH_TOKEN}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - MY_NUMBER=${MY_NUMBER}
+      - DEBUG=${DEBUG}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8086/mcp/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
